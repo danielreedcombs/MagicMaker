@@ -1,5 +1,3 @@
-const remoteURL = "http://localhost:8088"
-
 export default class APIManager {
   get(URL,resource,id) {
     return fetch(`${URL}/${resource}/${id}`).then(data => data.json())
