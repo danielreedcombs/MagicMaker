@@ -23,16 +23,18 @@ export default class Home extends Component {
     }
 
     loginUser(){
-    fetch(`http://localhost:8088/users/?name=${this.state.name}&password=${this.state.loginPassword}`)        .then(x => x.json())
+        console.log(this.state)
+    fetch(`http://localhost:8088/users/?name=${this.state.name}&password=${this.state.loginPassword}`)
+    .then(x => x.json())
     .then(returns => {
         console.log(returns)
-
-      if (returns.length < 1) {
+    if (returns.length < 1) {
         alert("Your email or Password is wrong")
       } else if (null === null) {
         sessionStorage.setItem(
           "userId", returns[0].id
         )
+        sessionStorage.setItem("userName", returns[0].name)
         this.setState({
           currentUser: sessionStorage.getItem("userId")
         }, console.log(this.state.currentUser))
@@ -93,7 +95,7 @@ export default class Home extends Component {
   render() {
     return (
       <React.Fragment>
-        <Login handleLogin={this.handleLogin} handleFieldChange={this.handleFieldChange} hideLoginForm={this.hideLoginForm} hideLoginForm={this.state.hideLoginForm} registration={this.registration}/>
+        <Login handleLogin={this.handleLogin} handleFieldChange={this.handleFieldChange} hideLoginForm={this.state.hideLoginForm} registration={this.registration}/>
       </React.Fragment>
     )
   }

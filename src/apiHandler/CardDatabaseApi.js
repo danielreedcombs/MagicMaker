@@ -1,11 +1,9 @@
 const remoteURL = "https://api.magicthegathering.io/v1/cards?name="
 
-export default class APIManager {
-  constructor(resource) {
-    this.resource = resource
-  }
+export default class CardManager {
 
-  get(cardName) {
-    return fetch(`${remoteURL}/${this.resource}/${cardName}`).then(data => data.json())
+  getAll(cardName) {
+    return fetch("https://api.magicthegathering.io/v1/cards")
+    .then(x => x.json())
   }
 }
