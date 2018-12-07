@@ -45,6 +45,16 @@ getAllMyCards(){
     .then(data => data.json())
 }
 getDatabaseCards(){}
+
+deletedeck(id) {
+  return fetch(`http://localhost:8088/decks/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    body: JSON.stringify()
+  }).then(data => data.json())
+}
 }
 
 export default new UserManager("user")

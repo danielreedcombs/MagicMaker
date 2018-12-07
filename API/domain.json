@@ -11,85 +11,33 @@
       "id": 1,
       "name": "Death and Taxes",
       "user_id": 1,
-      "deckList_id": 1,
-      "sideboard_id": 1,
       "sideboardNotes": "miracles sb: out: -4 mother of runes, 2 swords to plowshares in: 2 Gideon, 2 councils Judgement, 1 leonin-relic, 1 pithing needle"
     },
     {
       "id": 2,
       "name": "Miracles",
       "user_id": 1,
-      "deckList_id": 1,
-      "sideboard_id": 1,
       "sideboardNotes": "miracles sb: out: -4 mother of runes, 2 swords to plowshares in: 2 Gideon, 2 councils Judgement, 1 leonin-relic, 1 pithing needle"
     },
     {
       "id": 3,
-      "name": "Temur Energy",
-      "user_id": 2,
-      "deckList_id": 1,
-      "sideboard_id": 1,
+      "name": "Storm",
+      "user_id": 3,
       "sideboardNotes": "miracles sb: out: -4 mother of runes, 2 swords to plowshares in: 2 Gideon, 2 councils Judgement, 1 leonin-relic, 1 pithing needle"
     }
-  ],
-  "deckList": [
-    {
-      "id": 1,
-      "deck_id": 1,
-      "card_id":1
-    },
-    {
-      "id": 2,
-      "deck_id": 2,
-      "card_id":2
-    },
-    {
-      "id": 3,
-      "deck_id": 2,
-      "card_id":3
-    },
-    {
-      "id": 4,
-      "deck_id": 3,
-      "card_id":4
-    },
-    {
-      "id": 5,
-      "deck_id": 3,
-      "card_id":5
-    }
-
   ],
   "cards": [
     {
       "id": 1,
-      "deckList_id": 1,
-      "card_name": "snapcaster Mage",
-      "quantity": 4
-    },
-    {
-      "id": 1,
-      "deckList_id": 1,
-      "card_name": "Celestial Colonnade",
-      "quantity": 4
-    },
-    {
-      "id": 1,
-      "deckList_id": 2,
-      "card_name": "Lightning Bolt",
-      "quantity": 4
-    },
-    {
-      "id": 1,
-      "deckList_id": 2,
-      "card_name": "Overgrown Tomb",
-      "quantity": 4
-    },
-    {
-      "id": 1,
-      "deckList_id": 3,
+      "deckId": 3,
       "card_name": "Assasins Trophy",
       "quantity": 4
+    },
+    {
+      "id": 2,
+      "deckId": 1,
+      "card_name": "bolt",
+      "quantity": "2"
     }
   ]
 }

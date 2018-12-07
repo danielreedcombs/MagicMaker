@@ -20,7 +20,7 @@ handleItemClick = () => {
             <div className="container">
             <input type="text" className= "magicCardName" placeholder= "search card" />
             <button className="btn btn-primary" onClick= {this.handleItemClick}>search for card</button>
-            <CardEditor card={this.state.card}/>
+            <CardEditor card={this.state.card} />
             </div>
         )
     }

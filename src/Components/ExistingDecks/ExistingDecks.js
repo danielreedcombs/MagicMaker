@@ -2,6 +2,7 @@ import React, { Component } from "react"
 import DeckComponent from "./DeckComponent"
 import UserManager from "../../apiHandler/UserManager"
 
+
 export default class ExistingDecks extends Component {
     state = {
         decks: [],
@@ -16,13 +17,17 @@ export default class ExistingDecks extends Component {
             this.setState({cards: allCards})
         })
             Promise.all([getDecks, getCards]).then(()=>{
-                console.log(this.state)
                 this.setState({ initialized: true })
-                console.log(this.state)
             });
             });
     }
 
+    deleteDeck = (id, userId) => {
+        UserManager.deletedeck(id)
+        .then(()=>{UserManager.getDecks(userId)
+        .then(data =>{this.setState({decks: data})})})
+
+    }
 
 
 
@@ -31,7 +36,7 @@ export default class ExistingDecks extends Component {
             return (
                 <div>
                     {this.state.decks.map(deck => (
-                    <DeckComponent decks= {this.state.decks} deck={deck} cards={this.state.cards}/>
+                    <DeckComponent decks= {this.state.decks} deck={deck} cards={this.state.cards} deleteDeck={this.deleteDeck}/>
                     ))}
                 </div>
             )
