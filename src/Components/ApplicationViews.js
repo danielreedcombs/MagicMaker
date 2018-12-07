@@ -5,9 +5,37 @@ import NewDeck from "./NewDeck/NewDeck.js"
 import ExistingDecks from "./ExistingDecks/ExistingDecks"
 import Home from "../Components/HomePage/Home"
 import NavBar from "./NavBar/NavBar"
+import UserManager from "../apiHandler/UserManager"
 export default class ApplicationView extends Component{
+    state = {
+        decks: [],
+        cards:[],
+        initialized:false
+    }
     authenticate= () => {
   sessionStorage.setItem("userId", 1)
+}
+
+componentDidMount() {
+    let id= sessionStorage.getItem("userId")
+    let getDecks = UserManager.getDecks(id)
+    let getCards =UserManager.getAllMyCards()
+        Promise.all([getDecks, getCards]).then((decks)=>{
+
+            this.setState({
+                decks: decks[0],
+                cards: decks[1],
+                initialized: true })
+
+        });
+        }
+
+
+deleteDeck = (id, userId) => {
+    UserManager.deletedeck(id)
+    .then(()=>{UserManager.getDecks(userId)
+    .then(data =>{this.setState({decks: data})})})
+
 }
 
 
@@ -31,7 +59,7 @@ render(){
                 }} />
                 <Route path="/existingDecks" render={ (props) => {
                     if(this.isAuthenticated()){
-                    return <ExistingDecks {...props} user={this.getCurrentUser()} />}
+                    return <ExistingDecks {...props} user={this.getCurrentUser} cards={this.state.cards} decks={this.state.decks} deleteDeck={this.deleteDeck}/>}
                     else {return <Redirect to= "/home" />}
                 }} />
                 <Route path="/home" render={props => {

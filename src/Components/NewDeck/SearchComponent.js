@@ -16,6 +16,7 @@ handleItemClick = () => {
 
 
     render(){
+        if(this.props.initialized){
         return (
             <div className="container">
             <input type="text" className= "magicCardName" placeholder= "search card" />
@@ -23,5 +24,14 @@ handleItemClick = () => {
             <CardEditor card={this.state.card} />
             </div>
         )
+        
+
+    } else {
+        return(
+            <div>
+                <h1>loading </h1>
+            </div>
+        )
+    }
     }
 }
