@@ -4,6 +4,7 @@ import APIManager from "./APIManager"
 // user manager to handle database interactions for login and registration
 
  class UserManager extends APIManager {
+  //  Users Section
   getUser(id) {
     fetch(`http://localhost:8088/users/${id}`)
     .then(x => x.json())
@@ -33,6 +34,17 @@ import APIManager from "./APIManager"
       body: JSON.stringify(newUser)
     }).then(data => data.json())
   }
+
+  // Card Section
+getDecks(id){
+    return fetch(`http://localhost:8088/decks/?user_id=${id}`)
+    .then(data => data.json())
+  }
+getAllMyCards(){
+    return fetch(`http://localhost:8088/cards`)
+    .then(data => data.json())
+}
+getDatabaseCards(){}
 }
 
 export default new UserManager("user")

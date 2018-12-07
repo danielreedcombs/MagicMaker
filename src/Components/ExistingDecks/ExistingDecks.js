@@ -1,18 +1,21 @@
 import React, { Component } from "react"
-import CardData from "../../apiHandler/CardData"
 import DeckComponent from "./DeckComponent"
+import UserManager from "../../apiHandler/UserManager"
 
 export default class ExistingDecks extends Component {
     state = {
         decks: [],
+        cards:[],
         initialized:false
     }
     componentDidMount() {
-        console.log(CardData)
         let id= sessionStorage.getItem("userId")
-        let getDecks = CardData.getAll(id).then((allDecks)=>{
+        let getDecks = UserManager.getDecks(id).then((allDecks)=>{
             this.setState({decks: allDecks})
-            Promise.all([getDecks]).then(()=>{
+        let getCards =UserManager.getAllMyCards().then(allCards =>{
+            this.setState({cards: allCards})
+        })
+            Promise.all([getDecks, getCards]).then(()=>{
                 console.log(this.state)
                 this.setState({ initialized: true })
                 console.log(this.state)
@@ -28,7 +31,7 @@ export default class ExistingDecks extends Component {
             return (
                 <div>
                     {this.state.decks.map(deck => (
-                    <DeckComponent decks= {this.state.decks} deck={deck}/>
+                    <DeckComponent decks= {this.state.decks} deck={deck} cards={this.state.cards}/>
                     ))}
                 </div>
             )
