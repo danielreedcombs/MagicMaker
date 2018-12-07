@@ -11,45 +11,51 @@
       "id": 1,
       "name": "Death and Taxes",
       "user_id": 1,
-      "deckList_id": 1,
-      "sideboard_id": 1,
       "sideboardNotes": "miracles sb: out: -4 mother of runes, 2 swords to plowshares in: 2 Gideon, 2 councils Judgement, 1 leonin-relic, 1 pithing needle"
     },
     {
-      "id": 1,
-      "name": "Miracles",
-      "user_id": "1",
-      "deckList_id": 1,
-      "sideboard_id": 1,
+      "id": 3,
+      "name": "Storm",
+      "user_id": 3,
       "sideboardNotes": "miracles sb: out: -4 mother of runes, 2 swords to plowshares in: 2 Gideon, 2 councils Judgement, 1 leonin-relic, 1 pithing needle"
-    },
-    {
-      "id": 1,
-      "name": "Temur Energy",
-      "user_id": 1,
-      "deckList_id": 1,
-      "sideboard_id": 1,
-      "sideboardNotes": "miracles sb: out: -4 mother of runes, 2 swords to plowshares in: 2 Gideon, 2 councils Judgement, 1 leonin-relic, 1 pithing needle"
-    }
-  ],
-  "deckList": [
-    {
-      "id": 1,
-      "deck_id": 1,
-      "card_id": [
-        1,
-        3,
-        4,
-        12
-      ]
     }
   ],
   "cards": [
     {
-      "id": 1,
-      "deckList_id": 1,
-      "card_name": "snapcaster Mage",
-      "quantity": 4
+      "id": 2,
+      "deckId": 1,
+      "card_name": "bolt",
+      "quantity": "2"
+    },
+    {
+      "id": 2,
+      "deckId": 1,
+      "card_name": "helix",
+      "quantity": "2"
+    },
+    {
+      "id": 2,
+      "deckId": 1,
+      "card_name": "tundra",
+      "quantity": "2"
+    },
+    {
+      "id": 2,
+      "deckId": 1,
+      "card_name": "island",
+      "quantity": "2"
+    },
+    {
+      "id": 2,
+      "deckId": 1,
+      "card_name": "mountain",
+      "quantity": "2"
+    },
+    {
+      "id": 2,
+      "deckId": 1,
+      "card_name": "plains",
+      "quantity": "2"
     }
   ]
 }
