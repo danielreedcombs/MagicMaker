@@ -18,6 +18,7 @@ export default class CardEditor extends React.Component{
         });
       }
     render(){
+
         return(
             <div>
                 <div className= "sideBySide">
@@ -30,7 +31,7 @@ export default class CardEditor extends React.Component{
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
           <ModalHeader toggle={this.toggle}> {this.props.deckName}</ModalHeader>
           <ModalBody>
-                    <button onClick={()=>{this.props.minus()}}>-</button><p>{this.props.number}</p><button onClick={()=>{this.props.add()}}>+</button>
+                    <button onClick={()=>{console.log("minus")}}>-</button><p>{this.props.count}</p><button onClick={()=>{console.log("get bigger!")}}>+</button>
           </ModalBody>
           <ModalFooter>
             <Button color="primary" onClick={this.toggle}>Save Deck</Button>{' '}
@@ -40,5 +41,5 @@ export default class CardEditor extends React.Component{
       </div>
     </div>
         )
-    }
-}
+
+}}

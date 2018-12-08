@@ -7,21 +7,20 @@ import UserManager from "../../apiHandler/UserManager";
 export default class SearchComponent extends Component {
 state = {
     newDeck:"",
-    number: 0,
+    count: 0,
     postedDeck: ""
 }
 
-// minus(){
-//  const minus= this.state.number -1
-//  console.log(minus)
-// this.setState({number: minus})
-// }
-
-// add(){
-//     const add= this.state.number +1
-//     console.log(add)
-//     this.setState({number: add})
-// }
+incrementCount(){
+    this.setState({
+      count: this.state.count + 1
+    });
+  }
+DecrementCount(){
+  	this.setState({
+  		count: this.state.count - 1
+  	});
+  }
 
 createDeck(){
     let deckName= document.querySelector(".deckName").value
@@ -45,7 +44,7 @@ render(){
             <input type="text" className= "deckName" placeholder= "Deck Name" />
             <button className="btn btn-primary" onClick= {() => this.createDeck()}>Create a Deck</button>
             </div>
-                <CardEditor deckName={this.state.postedDeck.name} minus= {this.minus} add={this.add} number={this.state.number} />
+                <CardEditor deckName={this.state.postedDeck.name} minus= {this.minus} add={this.add} number={this.state.number} count={this.state.count} increase={this.state.incrementCount} decrease={this.state.DecrementCount}/>
             </div>
                 )}}
 
