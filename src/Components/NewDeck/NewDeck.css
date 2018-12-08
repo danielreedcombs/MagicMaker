@@ -1,0 +1,11 @@
+
+.sideBySide{
+    display: flex;
+    justify-content: center;
+    align-content: row
+}
+.row{
+        display: flex;
+        justify-content: center;
+        flex-direction: row
+}

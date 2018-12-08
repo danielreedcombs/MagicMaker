@@ -14,15 +14,19 @@
       "sideboardNotes": "miracles sb: out: -4 mother of runes, 2 swords to plowshares in: 2 Gideon, 2 councils Judgement, 1 leonin-relic, 1 pithing needle"
     },
     {
-      "id": 3,
-      "name": "Storm",
-      "user_id": 3,
-      "sideboardNotes": "miracles sb: out: -4 mother of runes, 2 swords to plowshares in: 2 Gideon, 2 councils Judgement, 1 leonin-relic, 1 pithing needle"
+      "name": "Temur Energy",
+      "user_id": "2",
+      "id": 2
+    },
+    {
+      "name": "Miracles",
+      "user_id": "1",
+      "id": 3
     }
   ],
   "cards": [
     {
-      "id": 2,
+      "id": 1,
       "deckId": 1,
       "card_name": "bolt",
       "quantity": "2"
@@ -34,26 +38,26 @@
       "quantity": "2"
     },
     {
-      "id": 2,
+      "id": 3,
       "deckId": 1,
       "card_name": "tundra",
       "quantity": "2"
     },
     {
-      "id": 2,
+      "id": 4,
       "deckId": 1,
       "card_name": "island",
       "quantity": "2"
     },
     {
-      "id": 2,
+      "id": 5,
       "deckId": 1,
       "card_name": "mountain",
       "quantity": "2"
     },
     {
-      "id": 2,
-      "deckId": 1,
+      "id": 6,
+      "deckId": 3,
       "card_name": "plains",
       "quantity": "2"
     }

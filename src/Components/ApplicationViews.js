@@ -20,11 +20,11 @@ componentDidMount() {
     let id= sessionStorage.getItem("userId")
     let getDecks = UserManager.getDecks(id)
     let getCards =UserManager.getAllMyCards()
-        Promise.all([getDecks, getCards]).then((decks)=>{
+        Promise.all([getDecks, getCards]).then((fetch)=>{
 
             this.setState({
-                decks: decks[0],
-                cards: decks[1],
+                decks: fetch[0],
+                cards: fetch[1],
                 initialized: true })
 
         });

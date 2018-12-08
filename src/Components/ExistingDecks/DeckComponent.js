@@ -1,8 +1,25 @@
-import React, {Component} from "react"
+import React from "react"
+import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
+
 import DeckDetail from "./DeckDetail"
 
-export default class DeckComponent extends Component{
+export default class DeckComponent extends React.Component{
 state= {}
+
+constructor(props) {
+    super(props);
+    this.state = {
+      modal: false
+    };
+
+    this.toggle = this.toggle.bind(this);
+  }
+
+  toggle() {
+    this.setState({
+      modal: !this.state.modal
+    });
+  }
     render(){
 
         let deckId= this.props.deck.id
@@ -15,8 +32,20 @@ state= {}
                             return  <DeckDetail cards={this.props.cards} card={card} deckId={deckId} decks={this.props.decks} />
                         })}
                             </div>
-                        <button className="btn btn-primary" onClick={() => {console.log(this.props.cards)}} >edit</button>
-                    <button className="btn btn-secondary" onClick={() => {this.props.deleteDeck(this.props.deck.id, sessionStorage.getItem("userId"))}}> delete </button>
+                            <div>
+        <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className}>
+          <ModalHeader toggle={this.toggle}>{this.props.deck.name}</ModalHeader>
+          <ModalBody>
+              <input type="text" value= {this.props.cards.card_name} />
+          </ModalBody>
+          <ModalFooter>
+            <Button color="primary" onClick={this.toggle}>Save</Button>{' '}
+            <Button color="secondary" onClick={this.toggle}>Cancel</Button>
+          </ModalFooter>
+        </Modal>
+      </div>
+                    <Button color= "primary" className="btn btn-primary" onClick={this.toggle}>edit</Button>
+                    <button  className="btn btn-secondary" onClick={() => {this.props.deleteDeck(this.props.deck.id, sessionStorage.getItem("userId"))}}> delete </button>
                 </div>
             </div>
         )
