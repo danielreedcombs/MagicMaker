@@ -8,63 +8,62 @@
   ],
   "decks": [
     {
-      "id": 1,
-      "name": "Death and Taxes",
-      "user_id": 1,
-      "sideboardNotes": "miracles sb: out: -4 mother of runes, 2 swords to plowshares in: 2 Gideon, 2 councils Judgement, 1 leonin-relic, 1 pithing needle"
-    },
-    {
       "name": "Temur Energy",
       "user_id": "2",
       "id": 2
     },
     {
-      "name": "Miracles",
+      "name": "Jeskai Control",
       "user_id": "1",
-      "id": 3
+      "id": 6
     },
     {
-      "name": "miracles",
+      "name": "Dredge",
       "user_id": "1",
-      "id": 4
+      "id": 7
+    },
+    {
+      "name": "Death and Taxes",
+      "user_id": "1",
+      "id": 8
     }
   ],
   "cards": [
     {
-      "id": 1,
-      "deckId": 1,
-      "card_name": "bolt",
-      "quantity": "2"
+      "deckId": 6,
+      "quantity": 2,
+      "card_name": "billy",
+      "id": 6
     },
     {
-      "id": 2,
-      "deckId": 1,
-      "card_name": "helix",
-      "quantity": "2"
+      "deckId": 6,
+      "quantity": 2,
+      "card_name": "billy",
+      "id": 7
     },
     {
-      "id": 3,
-      "deckId": 1,
-      "card_name": "tundra",
-      "quantity": "2"
+      "deckId": 7,
+      "quantity": 2,
+      "card_name": "billy",
+      "id": 8
     },
     {
-      "id": 4,
-      "deckId": 1,
-      "card_name": "island",
-      "quantity": "2"
+      "deckId": 7,
+      "quantity": 2,
+      "card_name": "billy",
+      "id": 9
     },
     {
-      "id": 5,
-      "deckId": 1,
-      "card_name": "mountain",
-      "quantity": "2"
+      "deckId": 7,
+      "quantity": 2,
+      "card_name": "billy",
+      "id": 10
     },
     {
-      "id": 6,
-      "deckId": 3,
-      "card_name": "plains",
-      "quantity": "2"
+      "deckId": 8,
+      "quantity": 2,
+      "card_name": "billy",
+      "id": 11
     }
   ]
 }

@@ -9,3 +9,7 @@
         justify-content: center;
         flex-direction: row
 }
+.setAppart{
+    margin:2px;
+    padding:2px
+}
