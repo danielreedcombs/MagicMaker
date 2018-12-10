@@ -82,6 +82,11 @@ deleteCards(id) {
     body: JSON.stringify()
   }).then(data => data.json())
 }
+
+getAPICards(){
+  return fetch("https://api.magicthegathering.io/v1/cards")
+  .then(x => x.json())
+}
 }
 
 export default new UserManager("user")

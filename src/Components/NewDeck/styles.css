@@ -2,7 +2,7 @@
 .sideBySide{
     display: flex;
     justify-content: center;
-    align-content: row
+    align-content: center
 }
 .row{
         display: flex;

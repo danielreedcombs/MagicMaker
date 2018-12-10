@@ -18,14 +18,9 @@
       "id": 6
     },
     {
-      "name": "Dredge",
+      "name": "Death and taxes",
       "user_id": "1",
-      "id": 7
-    },
-    {
-      "name": "Death and Taxes",
-      "user_id": "1",
-      "id": 8
+      "id": 9
     }
   ],
   "cards": [
@@ -42,28 +37,22 @@
       "id": 7
     },
     {
-      "deckId": 7,
-      "quantity": 2,
-      "card_name": "billy",
-      "id": 8
+      "card_name": "Stoneforged Mystic",
+      "deckId": 9,
+      "quantity": 4,
+      "id": 12
     },
     {
-      "deckId": 7,
-      "quantity": 2,
-      "card_name": "billy",
-      "id": 9
+      "card_name": "Batter Skull",
+      "deckId": 9,
+      "quantity": 1,
+      "id": 13
     },
     {
-      "deckId": 7,
-      "quantity": 2,
-      "card_name": "billy",
-      "id": 10
-    },
-    {
-      "deckId": 8,
-      "quantity": 2,
-      "card_name": "billy",
-      "id": 11
+      "card_name": "mother of runes",
+      "deckId": 9,
+      "quantity": 4,
+      "id": 14
     }
   ]
 }

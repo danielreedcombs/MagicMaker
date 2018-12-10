@@ -3,8 +3,8 @@ import DeckComponent from "./DeckComponent"
 
 
 export default class ExistingDecks extends Component {
-
     render() {
+        console.log(this.props.decks)
             return (
                 <div>
                     {this.props.decks.map(deck => (

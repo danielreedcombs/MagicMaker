@@ -10,6 +10,7 @@ export default class ApplicationView extends Component{
     state = {
         decks: [],
         cards:[],
+        APICards:[],
         postedDeck: "",
         initialized:false
     }
@@ -21,11 +22,13 @@ componentDidMount() {
     let id= sessionStorage.getItem("userId")
     let getDecks = UserManager.getDecks(id)
     let getCards =UserManager.getAllMyCards()
-        Promise.all([getDecks, getCards]).then((fetch)=>{
+    let getAPICards=UserManager.getAPICards()
+        Promise.all([getDecks, getCards, getAPICards]).then((fetch)=>{
 
             this.setState({
                 decks: fetch[0],
                 cards: fetch[1],
+                APICards:fetch[2],
                 initialized: true })
 
         });
@@ -35,11 +38,11 @@ componentDidMount() {
 deleteDeck = (id, userId) => {
     UserManager.deletedeck(id)
     .then(()=>{UserManager.getDecks(userId)
-    .then(data =>{this.setState({decks: data})})}).then(()=> UserManager.deleteCards(id))
+    .then(data =>{this.setState({decks: data})})}).then(()=> UserManager.deleteCards(id)).then(UserManager.getAllMyCards().then(newCards => {this.setState({postedDeck: ""})}))
 
 }
 
-createDeck =(value) =>{
+createDeck=(value) =>{
     let deckName= value
     let user = sessionStorage.getItem("userId")
     let obj={
@@ -50,21 +53,12 @@ createDeck =(value) =>{
     .then(deck => this.setState({postedDeck: deck}))
     .then(() => UserManager.getDecks(user).then(allDecks => {
         this.setState({decks: allDecks}
-            )})).then(()=>
-            console.log(this.state.postedDeck))
+            )}))
     }
 
-postCards=(name, quantity,deckId) =>{
-    let cardName = name
-    let cardQuantity= quantity
-    let cardDeckId= deckId
-    let obj= {
-        card_name: cardName,
-        quantity: cardQuantity,
-        deckId: cardDeckId
+postCards= (obj) => {
 
-    }
-    UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})))
+    UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})).then(alert("added a card to your deck!")))
 }
 
 isAuthenticated = () => (sessionStorage.getItem("userId") !== null || localStorage.getItem("userId") !== null)
@@ -82,7 +76,7 @@ render(){
                 <br></br>
                 <Route path="/newDeck" render={(props) => {
                     if(this.isAuthenticated()) {
-                return <NewDeck {...props} user={this.getCurrentUser()} postedDeck={this.state.postedDeck} createDeck={this.createDeck} postCards={this.postCards} />
+                return <NewDeck {...props} user={this.getCurrentUser()} APICards={this.state.APICards} postedDeck={this.state.postedDeck} createDeck={this.createDeck} postCards={this.postCards} cards={this.state.cards} />
                     }else {return <Redirect to= "/home" />}
                 }} />
                 <Route path="/existingDecks" render={ (props) => {
