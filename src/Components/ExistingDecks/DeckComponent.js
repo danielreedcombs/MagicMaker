@@ -1,6 +1,5 @@
 import React from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
-
 import DeckDetail from "./DeckDetail"
 
 export default class DeckComponent extends React.Component{
