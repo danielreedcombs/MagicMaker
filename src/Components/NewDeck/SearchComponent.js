@@ -13,7 +13,7 @@ render(){
             <input type="text" className= "deckName" placeholder= "Deck Name" />
             <button className="btn btn-primary" onClick= {()=> {this.props.createDeck(document.querySelector(".deckName").value)}}>Create a Deck</button>
             </div>
-                <CardEditor cards= {this.props.cards} deckName={this.props.postedDeck} APICards={this.props.APICards} createDeck= {this.props.createDeck} postCards={this.props.postCards} />
+                <CardEditor editSubmit={this.props.editSubmit} deleteCard={this.props.deleteCard} cards= {this.props.cards} deckName={this.props.postedDeck} APICards={this.props.APICards} createDeck= {this.props.createDeck} postCards={this.props.postCards} />
             </div>
                 )}}
 

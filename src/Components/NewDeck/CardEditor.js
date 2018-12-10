@@ -97,7 +97,7 @@ state={
       </div>
     </div>
         {this.props.cards.map(card =>
-            <CardComponent cards={this.props.cards} deckName={this.props.deckName} APICards={this.props.APICards} card= {card} />
+            <CardComponent editSubmit={this.props.editSubmit}deleteCard={this.props.deleteCard} cards={this.props.cards} deckName={this.props.deckName} APICards={this.props.APICards} card= {card} />
             )
         }
     </div>

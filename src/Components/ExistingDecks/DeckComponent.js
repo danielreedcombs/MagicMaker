@@ -28,7 +28,7 @@ constructor(props) {
                     <h3 className="card-title">{this.props.deck.name}</h3>
                         <div className="card-text">
                         {this.props.cards.map(card =>{
-                            return  <DeckDetail key={this.props.cards.id} cards={this.props.cards} card={card} deckId={deckId} decks={this.props.decks} />
+                            return  <DeckDetail editSubmit= {this.props.editSubmit}deleteCard={this.props.deleteCard} key={this.props.cards.id} cards={this.props.cards} card={card} deckId={deckId} decks={this.props.decks} />
                         })}
                             </div>
                             <div>
@@ -43,8 +43,7 @@ constructor(props) {
           </ModalFooter>
         </Modal>
       </div>
-                    <Button color= "primary" className="btn btn-primary" onClick={this.toggle}>edit</Button>
-                    <Button color="danger" className="btn btn-secondary" onClick={() => {this.props.deleteDeck(this.props.deck.id, sessionStorage.getItem("userId"))}}> delete </Button>
+                    <Button color="primary" className="btn btn-primary" onClick={() => {this.props.deleteDeck(this.props.deck.id, sessionStorage.getItem("userId"))}}> delete </Button>
                 </div>
             </div>
         )

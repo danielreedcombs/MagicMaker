@@ -82,11 +82,30 @@ deleteCards(id) {
     body: JSON.stringify()
   }).then(data => data.json())
 }
-
+deleteCard(id) {
+  return fetch(`http://localhost:8088/cards/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    body: JSON.stringify()
+  }).then(data => data.json())
+}
 getAPICards(){
   return fetch("https://api.magicthegathering.io/v1/cards")
   .then(x => x.json())
 }
+
+editCard(id,value){
+  return fetch(`http://localhost:8088/cards/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(value)
+  }).then(res => res.json())
+}
+
 }
 
 export default new UserManager("user")
