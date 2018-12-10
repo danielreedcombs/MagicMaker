@@ -64,6 +64,24 @@ postDeck(obj) {
     body: JSON.stringify(obj)
   }).then(data => data.json())
 }
+postCard(obj) {
+  return fetch(`http://localhost:8088/cards`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    body: JSON.stringify(obj)
+  }).then(data => data.json())
+}
+deleteCards(id) {
+  return fetch(`http://localhost:8088/cards/?deckId=${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    body: JSON.stringify()
+  }).then(data => data.json())
+}
 }
 
 export default new UserManager("user")

@@ -10,6 +10,7 @@ export default class ApplicationView extends Component{
     state = {
         decks: [],
         cards:[],
+        postedDeck: "",
         initialized:false
     }
     authenticate= () => {
@@ -34,10 +35,37 @@ componentDidMount() {
 deleteDeck = (id, userId) => {
     UserManager.deletedeck(id)
     .then(()=>{UserManager.getDecks(userId)
-    .then(data =>{this.setState({decks: data})})})
+    .then(data =>{this.setState({decks: data})})}).then(()=> UserManager.deleteCards(id))
 
 }
 
+createDeck =(value) =>{
+    let deckName= value
+    let user = sessionStorage.getItem("userId")
+    let obj={
+        name: deckName,
+        user_id: user
+    }
+    UserManager.postDeck(obj)
+    .then(deck => this.setState({postedDeck: deck}))
+    .then(() => UserManager.getDecks(user).then(allDecks => {
+        this.setState({decks: allDecks}
+            )})).then(()=>
+            console.log(this.state.postedDeck))
+    }
+
+postCards=(name, quantity,deckId) =>{
+    let cardName = name
+    let cardQuantity= quantity
+    let cardDeckId= deckId
+    let obj= {
+        card_name: cardName,
+        quantity: cardQuantity,
+        deckId: cardDeckId
+
+    }
+    UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})))
+}
 
 isAuthenticated = () => (sessionStorage.getItem("userId") !== null || localStorage.getItem("userId") !== null)
 
@@ -54,7 +82,7 @@ render(){
                 <br></br>
                 <Route path="/newDeck" render={(props) => {
                     if(this.isAuthenticated()) {
-                return <NewDeck {...props} user={this.getCurrentUser()} />
+                return <NewDeck {...props} user={this.getCurrentUser()} postedDeck={this.state.postedDeck} createDeck={this.createDeck} postCards={this.postCards} />
                     }else {return <Redirect to= "/home" />}
                 }} />
                 <Route path="/existingDecks" render={ (props) => {

@@ -8,7 +8,7 @@ export default class ExistingDecks extends Component {
             return (
                 <div>
                     {this.props.decks.map(deck => (
-                    <DeckComponent decks= {this.props.decks} deck={deck} cards={this.props.cards} deleteDeck={this.props.deleteDeck}/>
+                    <DeckComponent key={this.props.decks.id} decks= {this.props.decks} deck={deck} cards={this.props.cards} deleteDeck={this.props.deleteDeck}/>
                     ))}
                 </div>
 
