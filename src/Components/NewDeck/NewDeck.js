@@ -11,7 +11,7 @@ postDeck= (object) => {
     render(){
         return (
         <React.Fragment>
-            <SearchComponent  cards={this.props.cards} postCards={this.props.postCards} APICards={this.props.APICards} createDeck= {this.props.createDeck} postedDeck={this.props.postedDeck} />
+            <SearchComponent editSubmit ={this.props.editSubmit}deleteCard={this.props.deleteCard} cards={this.props.cards} postCards={this.props.postCards} APICards={this.props.APICards} createDeck= {this.props.createDeck} postedDeck={this.props.postedDeck} />
         </React.Fragment>
         )
     }

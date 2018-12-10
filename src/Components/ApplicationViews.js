@@ -38,8 +38,7 @@ componentDidMount() {
 deleteDeck = (id, userId) => {
     UserManager.deletedeck(id)
     .then(()=>{UserManager.getDecks(userId)
-    .then(data =>{this.setState({decks: data})})}).then(()=> UserManager.deleteCards(id)).then(UserManager.getAllMyCards().then(newCards => {this.setState({postedDeck: ""})}))
-
+    .then(data =>{this.setState({decks: data})})}).then(()=> UserManager.deleteCards(id)).then(UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})}).then(this.setState ({postedDeck: ""})).then(console.log(this.state.cards)))
 }
 
 createDeck=(value) =>{
@@ -57,8 +56,7 @@ createDeck=(value) =>{
     }
 
 postCards= (obj) => {
-
-    UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})).then(alert("added a card to your deck!")))
+UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})).then(alert("added a card to your deck!")))
 }
 
 isAuthenticated = () => (sessionStorage.getItem("userId") !== null || localStorage.getItem("userId") !== null)
@@ -67,6 +65,15 @@ getCurrentUser = () => {
     const currentUser = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
     return currentUser
 }
+
+deleteCard = (id) => {
+    UserManager.deleteCard(id).then(()=> {UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})})})
+}
+
+editSubmit = (id,obj) => {
+    UserManager.editCard(id, obj).then(()=> {UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})})})
+}
+
 render(){
 
         return(
@@ -76,12 +83,12 @@ render(){
                 <br></br>
                 <Route path="/newDeck" render={(props) => {
                     if(this.isAuthenticated()) {
-                return <NewDeck {...props} user={this.getCurrentUser()} APICards={this.state.APICards} postedDeck={this.state.postedDeck} createDeck={this.createDeck} postCards={this.postCards} cards={this.state.cards} />
+                return <NewDeck {...props} editSubmit={this.editSubmit} user={this.getCurrentUser()} deleteCard={this.deleteCard} APICards={this.state.APICards} postedDeck={this.state.postedDeck} createDeck={this.createDeck} postCards={this.postCards} cards={this.state.cards} />
                     }else {return <Redirect to= "/home" />}
                 }} />
                 <Route path="/existingDecks" render={ (props) => {
                     if(this.isAuthenticated()){
-                    return <ExistingDecks {...props} user={this.getCurrentUser} cards={this.state.cards} decks={this.state.decks} deleteDeck={this.deleteDeck}/>}
+                    return <ExistingDecks {...props} editSubmit={this.editSubmit} user={this.getCurrentUser} cards={this.state.cards} decks={this.state.decks} deleteDeck={this.deleteDeck} deleteCard={this.deleteCard} />}
                     else {return <Redirect to= "/home" />}
                 }} />
                 <Route path="/home" render={props => {

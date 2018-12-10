@@ -8,7 +8,7 @@ export default class CardComponent extends Component{
         if(Number(cardId) === Number(deckId)){
             return(
             <div key={this.props.card.id}>
-            <h4>{this.props.card.card_name}</h4><h4> quantity:{this.props.card.quantity}</h4>
+            <div>{this.props.card.card_name}{this.props.card.quantity}</div>
             </div>
             )
         } else {
