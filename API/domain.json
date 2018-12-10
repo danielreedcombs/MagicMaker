@@ -29,18 +29,13 @@
     },
     {
       "name": "d",
-      "user_id": "1",
-      "id": 10
-    },
-    {
-      "name": "fuck",
-      "user_id": "1",
-      "id": 11
-    },
-    {
-      "name": "d",
       "user_id": "2",
       "id": 12
+    },
+    {
+      "name": "ee",
+      "user_id": "2",
+      "id": 13
     }
   ],
   "cards": [
@@ -51,25 +46,14 @@
       "id": 1
     },
     {
-      "card_name": "snapcaster mage",
-      "deckId": 7,
-      "quantity": 4,
-      "id": 2
-    },
-    {
-      "card_name": "e",
-      "deckId": 10,
-      "id": 3
-    },
-    {
-      "card_name": "e",
-      "deckId": 11,
-      "id": 4
-    },
-    {
       "card_name": "mayyybe",
       "deckId": 12,
       "id": 5
+    },
+    {
+      "card_name": "better",
+      "deckId": 13,
+      "id": 6
     }
   ]
 }
