@@ -21,7 +21,31 @@ export default class ApplicationView extends Component{
 
 componentDidMount() {
     let id= sessionStorage.getItem("userId")
-    let getDecks = UserManager.getDecks(id)
+    if (id !== null) {
+    this.loadDecks(id)
+    }
+    // let id= sessionStorage.getItem("userId")
+    // let getDecks = UserManager.getDecks(id)
+    // let getCards =UserManager.getAllMyCards()
+    // let getAPICards=UserManager.getAPICards()
+    // let getSideboardCards= UserManager.getSideboard()
+    //     Promise.all([getDecks, getCards, getAPICards, getSideboardCards]).then((fetch)=>{
+
+    //         this.setState({
+    //             decks: fetch[0],
+    //             cards: fetch[1],
+    //             APICards:fetch[2],
+    //             sideBoard: fetch[3],
+    //             initialized: true
+    //     })
+    //     });
+        }
+
+loadDecks=(temp)=>{
+    // let id= sessionStorage.getItem("userId")
+    console.log("load decks")
+    console.log("temp", temp)
+    let getDecks = UserManager.getDecks(temp)
     let getCards =UserManager.getAllMyCards()
     let getAPICards=UserManager.getAPICards()
     let getSideboardCards= UserManager.getSideboard()
@@ -34,10 +58,9 @@ componentDidMount() {
                 sideBoard: fetch[3],
                 initialized: true
         })
-        }).then(() =>console.log(this.state.APICards));
-        }
+        });
 
-
+}
 deleteDeck = (id, userId) => {
     UserManager.deletedeck(id)
     .then(()=>{UserManager.getDecks(userId)
@@ -65,7 +88,7 @@ postSideboard= (obj) =>{
     UserManager.postSideboard(obj).then(()=>UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard})).then(console.log(this.state.sideboards)))
 }
 
-isAuthenticated = () => (sessionStorage.getItem("userId") !== null || localStorage.getItem("userId") !== null)
+isAuthenticated = () => (sessionStorage.getItem("userId") !== null)
 
 getCurrentUser = () => {
     const currentUser = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
@@ -114,7 +137,7 @@ render(){
                 }} />
                 <Route path="/home" render={props => {
           return (
-            <Home getAllUsers={this.getAllUsers} getCurrentUser={this.getCurrentUser} {...props} />)
+            <Home loadDecks={this.loadDecks} getAllUsers={this.getAllUsers} getCurrentUser={this.getCurrentUser} {...props} />)
         }} />
             </React.Fragment>
         )
