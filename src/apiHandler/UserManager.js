@@ -105,7 +105,37 @@ editCard(id,value){
     body: JSON.stringify(value)
   }).then(res => res.json())
 }
-
+getSideboard(){
+  return fetch(`http://localhost:8088/sideboard`)
+  .then(data => data.json())
+}
+postSideboard(obj) {
+  return fetch(`http://localhost:8088/sideboard`, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    body: JSON.stringify(obj)
+  }).then(data => data.json())
+}
+editSideboard(id,value){
+  return fetch(`http://localhost:8088/sideboard/${id}`, {
+    method: "PATCH",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify(value)
+  }).then(res => res.json())
+}
+deleteSideboard(id) {
+  return fetch(`http://localhost:8088/sideboard/${id}`, {
+      method: "DELETE",
+      headers: {
+        "Content-Type": "application/json"
+      },
+    body: JSON.stringify()
+  }).then(data => data.json())
+}
 }
 
 export default new UserManager("user")
