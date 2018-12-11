@@ -19,11 +19,6 @@
     },
     {
       "name": "Miracles",
-      "user_id": "1",
-      "id": 7
-    },
-    {
-      "name": "Miracles",
       "user_id": "2",
       "id": 9
     },
@@ -36,20 +31,42 @@
       "name": "ee",
       "user_id": "2",
       "id": 13
+    },
+    {
+      "name": "Miracles",
+      "user_id": "1",
+      "id": 14
+    },
+    {
+      "name": "d",
+      "user_id": "1",
+      "id": 15
+    },
+    {
+      "name": "",
+      "user_id": "1",
+      "id": 16
     }
   ],
   "cards": [
-    {
-      "card_name": "Terminus",
-      "deckId": 7,
-      "quantity": 4,
-      "id": 1
-    },
     {
       "card_name": "mayyybe",
       "deckId": 12,
       "id": 5
     },
+    {
+      "card_name": "better",
+      "deckId": 13,
+      "id": 6
+    },
+    {
+      "card_name": "Swords to Plowshares",
+      "deckId": 14,
+      "quantity": 4,
+      "id": 7
+    }
+  ],
+  "sideboard": [
     {
       "card_name": "better",
       "deckId": 13,

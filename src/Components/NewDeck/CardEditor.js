@@ -3,7 +3,7 @@ import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
 import "./styles.css"
 import CardComponent from "./CardComponent"
-
+import SideboardSection from "./SideboardSection"
 export default class CardEditor extends React.Component{
 state={
     name: "",
@@ -47,6 +47,18 @@ state={
 
     }
 
+    postSideboard= () =>{
+      let deckId= this.props.deckName.id
+        let cardName =document.querySelector(".newCard").value
+        let cardNumber = this.state.number
+      let obj={
+          card_name: cardName,
+          deckId: deckId,
+          quantity: cardNumber
+      }
+
+    this.props.postSideboard(obj)}
+
     render(){
 
         return(
@@ -89,6 +101,7 @@ state={
       </Dropdown>
       <h3>{this.state.number}</h3>
       <Button color="btn btn-Primary"onClick={()=>{ if(this.props.deckName.name !== undefined){ this.postCardToDatabase()} else {alert("create a deck first")}}} >add card</Button>
+      <Button color="info" onClick={()=>{ if(this.props.deckName.name !== undefined){ this.postSideboard()} else {alert("create a deck first")}}} >add Sideboard Card</Button>
           </ModalBody>
           <ModalFooter>
             <Button color="secondary" onClick={this.toggle} >Cancel</Button>
@@ -96,10 +109,21 @@ state={
         </Modal>
       </div>
     </div>
+    <h3>Deck</h3>
         {this.props.cards.map(card =>
             <CardComponent editSubmit={this.props.editSubmit}deleteCard={this.props.deleteCard} cards={this.props.cards} deckName={this.props.deckName} APICards={this.props.APICards} card= {card} />
             )
         }
+    <h3>Sideboard</h3>
+    <div>
+      {this.props.sideboards.map(sideboard =>
+        <SideboardSection sideboard={sideboard} editSideboard={this.props.editSideboard}
+        postSideboard={this.props.postSideboard}
+        deleteSideboard={this.props.deleteSideboard}
+         getSideboard={this.props.getSideboard}
+         deckName={this.props.deckName}
+         sideboards={this.props.sideboards} />)}
+    </div>
     </div>
   </div>
         )
