@@ -31,10 +31,10 @@ componentDidMount() {
                 decks: fetch[0],
                 cards: fetch[1],
                 APICards:fetch[2],
-                sideboards: fetch[3],
+                sideBoard: fetch[3],
                 initialized: true
         })
-        });
+        }).then(() =>console.log(this.state.APICards));
         }
 
 
@@ -62,7 +62,7 @@ postCards= (obj) => {
 UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})).then(alert("added a card to your deck!")))
 }
 postSideboard= (obj) =>{
-    UserManager.postSideboard(obj).then(()=>UserManager.getSideboard().then(newSideboard => this.setState({sideboards: newSideboard})).then(console.log(this.state.sideboards)))
+    UserManager.postSideboard(obj).then(()=>UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard})).then(console.log(this.state.sideboards)))
 }
 
 isAuthenticated = () => (sessionStorage.getItem("userId") !== null || localStorage.getItem("userId") !== null)
@@ -76,17 +76,18 @@ deleteCard = (id) => {
     UserManager.deleteCard(id).then(()=> {UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})})})
 }
 deleteSideboard = (id) => {
-UserManager.deleteSideboard(id).then(()=>{UserManager.getSideboard().then(newSideboard => this.setState({sideboards:newSideboard}))})
+UserManager.deleteSideboard(id).then(()=>{UserManager.getSideboard().then(newSideboard => this.setState({sideBoard:newSideboard}))})
 }
 editSubmit = (id,obj) => {
     UserManager.editCard(id, obj).then(()=> {UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})})})
 }
 editSideboard=(id,obj) =>{
-    UserManager.editSideboard(id,obj).then(()=>{UserManager.getSideboard().then(newSideboard => this.setState({sideboards: newSideboard}))})
+    UserManager.editSideboard(id,obj).then(()=>{UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard}))})
 }
 
 
 render(){
+    console.log(this.state.APICards)
 
         return(
             <React.Fragment>

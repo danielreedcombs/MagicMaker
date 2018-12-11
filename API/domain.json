@@ -36,6 +36,16 @@
       "name": "Miracles",
       "user_id": "1",
       "id": 14
+    },
+    {
+      "name": "d",
+      "user_id": "1",
+      "id": 15
+    },
+    {
+      "name": "",
+      "user_id": "1",
+      "id": 16
     }
   ],
   "cards": [
@@ -61,12 +71,6 @@
       "card_name": "better",
       "deckId": 13,
       "id": 6
-    },
-    {
-      "card_name": "Swords to Plowshares",
-      "deckId": 14,
-      "quantity": 4,
-      "id": 7
     }
   ]
 }

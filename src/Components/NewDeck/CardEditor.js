@@ -120,7 +120,9 @@ state={
         <SideboardSection sideboard={sideboard} editSideboard={this.props.editSideboard}
         postSideboard={this.props.postSideboard}
         deleteSideboard={this.props.deleteSideboard}
-         getSideboard={this.props.getSideboard} sideboards={this.props.sideboards} />)}
+         getSideboard={this.props.getSideboard}
+         deckName={this.props.deckName}
+         sideboards={this.props.sideboards} />)}
     </div>
     </div>
   </div>

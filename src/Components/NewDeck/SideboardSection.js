@@ -44,13 +44,15 @@ export default class DeckDetail extends React.Component{
           }
 
    render(){
-        const deckId = this.props.deckId
-        const card =this.props.sideboard.deckId
+    const deckId = this.props.deckName.id
+    const cardId =this.props.sideboard.deckId
+    if(Number(cardId) === Number(deckId)){
 
-        if(card === deckId){
             return(
             <div key={this.props.sideboard.id} className="align">
-            <h5>{this.props.sideboard.card_name}</h5>  <h5 className="padding">quantity:</h5>  <h5>{this.props.sideboard.quantity}</h5>
+            <h5>{this.props.sideboard.card_name}</h5>
+             <h5 className="padding">quantity:</h5>
+             <h5>{this.props.sideboard.quantity}</h5>
             <Button color="info" onClick={this.toggle}>edit</Button>
             <Button color="danger" onClick={()=>{this.props.deleteSideboard(this.props.sideboard.id)}} > delete </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
@@ -87,7 +89,7 @@ export default class DeckDetail extends React.Component{
         </DropdownMenu>
       </Dropdown>
       <h3>{this.state.number}</h3>
-      <Button color="btn btn-Primary"onClick={()=>{ if(document.querySelector(".editCard").value !== "" || this.state.number !== ""){ this.editSideboard().then(console.log(this.props.sideboards))} else {alert("write a card name")}}} >edit card</Button>
+      <Button color="btn btn-Primary"onClick={()=>{ if(document.querySelector(".editCard").value !== "" || this.state.number !== ""){ this.editSideboard()} else {alert("write a card name")}}} >edit card</Button>
           </ModalBody>
           <ModalFooter>
             <Button color="secondary" onClick={this.toggle} >Cancel</Button>
