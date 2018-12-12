@@ -49,12 +49,14 @@ export default class DeckDetail extends React.Component{
     if(Number(cardId) === Number(deckId)){
 
             return(
-            <div key={this.props.sideboard.id} className="align">
+            <div key={this.props.sideboard.id} className="center">
+            <div className="sideBySide">
             <h5>{this.props.sideboard.card_name}</h5>
              <h5 className="padding">quantity:</h5>
              <h5>{this.props.sideboard.quantity}</h5>
             <Button color="info" onClick={this.toggle}>edit</Button>
             <Button color="danger" onClick={()=>{this.props.deleteSideboard(this.props.sideboard.id)}} > delete </Button>
+            </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
           <ModalHeader toggle={this.toggle}> {this.props.sideboard.card_name}</ModalHeader>
           <ModalBody className="sideBySide">

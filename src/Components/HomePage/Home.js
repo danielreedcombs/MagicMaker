@@ -33,7 +33,8 @@ export default class Home extends Component {
         }
         else if (returns.length === 1) {
         sessionStorage.setItem(
-          "userId", returns[0].id
+          "userId", returns[0].id,
+          "userName", returns[0].name
         )
         this.props.loadDecks(returns[0].id)
         this.setState({

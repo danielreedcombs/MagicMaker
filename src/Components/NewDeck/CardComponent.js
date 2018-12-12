@@ -1,6 +1,7 @@
 import React from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import "./styles.css"
 
 export default class CardComponent extends React.Component{
     state= {
@@ -42,10 +43,13 @@ export default class CardComponent extends React.Component{
         const cardId =this.props.card.deckId
         if(Number(cardId) === Number(deckId)){
             return(
-            <div key={this.props.card.id}>
-            <div>{this.props.card.card_name}{this.props.card.quantity}</div>
+            <div key={this.props.card.id} className="center">
+            <div className="sideBySide">
+            <h4>{this.props.card.card_name}</h4>
+            <h5>Quantity:</h5><p> {this.props.card.quantity}</p>
             <Button color="info" onClick={this.toggle}>edit</Button>
             <Button color="danger" onClick={()=>{this.props.deleteCard(this.props.card.id)}} > delete </Button>
+            </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
           <ModalHeader toggle={this.toggle}> {this.props.card.card_name}</ModalHeader>
           <ModalBody className="sideBySide">

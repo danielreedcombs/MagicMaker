@@ -65,7 +65,7 @@ state={
         <div>
             <div>
                 <div key={this.props.deckName.Id} className= "sideBySide">
-                    <h4 className="setAppart"> {this.props.deckName.name} </h4>
+                    {/* <h4 className="setAppart"> {this.props.deckName.name} </h4> */}
         <div>
         <Button color="danger" onClick={this.toggle}>Add Cards</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
@@ -109,14 +109,15 @@ state={
         </Modal>
       </div>
     </div>
-    <div className="midLane">
+    <div className="center">
+    <h2>{this.props.deckName.name}</h2>
     <h3>Main Deck</h3>
         {this.props.cards.map(card =>
             <CardComponent editSubmit={this.props.editSubmit}deleteCard={this.props.deleteCard} cards={this.props.cards} deckName={this.props.deckName} APICards={this.props.APICards} card= {card} />
             )
           }
     </div>
-    <div className="midLane">
+    <div className="center">
     <h3>Sideboard</h3>
     <div>
       {this.props.sideboards.map(sideboard =>
