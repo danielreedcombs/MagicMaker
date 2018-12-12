@@ -30,7 +30,7 @@
     {
       "name": "Miracles",
       "user_id": "1",
-      "id": 15
+      "id": 14
     }
   ],
   "cards": [
@@ -43,96 +43,6 @@
       "card_name": "better",
       "deckId": 13,
       "id": 6
-    },
-    {
-      "card_name": "Ponder",
-      "deckId": 15,
-      "quantity": 4,
-      "id": 9
-    },
-    {
-      "card_name": "Counter Spell",
-      "deckId": 15,
-      "quantity": 3,
-      "id": 10
-    },
-    {
-      "card_name": "Force of will",
-      "deckId": 15,
-      "quantity": 4,
-      "id": 11
-    },
-    {
-      "card_name": "Telling Time",
-      "deckId": 15,
-      "quantity": 4,
-      "id": 12
-    },
-    {
-      "card_name": "Predict",
-      "deckId": 15,
-      "quantity": 2,
-      "id": 13
-    },
-    {
-      "card_name": "Terminus",
-      "deckId": 15,
-      "quantity": 3,
-      "id": 14
-    },
-    {
-      "card_name": "Jace, the mind Sculptor",
-      "deckId": 15,
-      "quantity": 3,
-      "id": 15
-    },
-    {
-      "card_name": "Councils Judgement",
-      "deckId": 15,
-      "quantity": 1,
-      "id": 16
-    },
-    {
-      "card_name": "flooded Strand",
-      "deckId": 15,
-      "quantity": 4,
-      "id": 17
-    },
-    {
-      "card_name": "scalding tarn",
-      "deckId": 15,
-      "quantity": 4,
-      "id": 18
-    },
-    {
-      "card_name": "Search for Azcanta",
-      "deckId": 15,
-      "quantity": 2,
-      "id": 19
-    },
-    {
-      "card_name": "Monastery Mentor",
-      "deckId": 15,
-      "quantity": 3,
-      "id": 20
-    },
-    {
-      "card_name": "plains",
-      "deckId": 15,
-      "quantity": 6,
-      "id": 22
-    },
-    {
-      "card_name": "Tundra",
-      "deckId": 15,
-      "quantity": 2,
-      "id": 23
-    },
-    {
-      "card_name": "Supreme Verdict",
-      "deckId": 15,
-      "quantity": 1,
-      "id": 24
     }
   ],
   "sideboard": [
@@ -140,36 +50,6 @@
       "card_name": "better",
       "deckId": 13,
       "id": 6
-    },
-    {
-      "card_name": "Councils Judgement",
-      "deckId": 15,
-      "quantity": 1,
-      "id": 7
-    },
-    {
-      "card_name": "flusterStorm",
-      "deckId": 15,
-      "quantity": 2,
-      "id": 8
-    },
-    {
-      "card_name": "back to basics",
-      "deckId": 15,
-      "quantity": 2,
-      "id": 9
-    },
-    {
-      "card_name": "Rest in Peace",
-      "deckId": 15,
-      "quantity": 2,
-      "id": 10
-    },
-    {
-      "card_name": "Surgical Extraction",
-      "deckId": 15,
-      "quantity": 2,
-      "id": 11
     }
   ]
 }

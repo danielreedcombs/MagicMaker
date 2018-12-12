@@ -1,4 +1,3 @@
-// import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from "react"
 import { Route, Redirect } from 'react-router-dom'
 import NewDeck from "./NewDeck/NewDeck.js"
@@ -10,7 +9,6 @@ export default class ApplicationView extends Component{
     state = {
         decks: [],
         cards:[],
-        APICards:[],
         sideBoard:[],
         postedDeck: "",
         initialized:false
@@ -24,38 +22,18 @@ componentDidMount() {
     if (id !== null) {
     this.loadDecks(id)
     }
-    // let id= sessionStorage.getItem("userId")
-    // let getDecks = UserManager.getDecks(id)
-    // let getCards =UserManager.getAllMyCards()
-    // let getAPICards=UserManager.getAPICards()
-    // let getSideboardCards= UserManager.getSideboard()
-    //     Promise.all([getDecks, getCards, getAPICards, getSideboardCards]).then((fetch)=>{
-
-    //         this.setState({
-    //             decks: fetch[0],
-    //             cards: fetch[1],
-    //             APICards:fetch[2],
-    //             sideBoard: fetch[3],
-    //             initialized: true
-    //     })
-    //     });
-        }
+}
 
 loadDecks=(temp)=>{
-    // let id= sessionStorage.getItem("userId")
-    console.log("load decks")
-    console.log("temp", temp)
     let getDecks = UserManager.getDecks(temp)
     let getCards =UserManager.getAllMyCards()
-    let getAPICards=UserManager.getAPICards()
     let getSideboardCards= UserManager.getSideboard()
-        Promise.all([getDecks, getCards, getAPICards, getSideboardCards]).then((fetch)=>{
+        Promise.all([getDecks, getCards, getSideboardCards]).then((fetch)=>{
 
             this.setState({
                 decks: fetch[0],
                 cards: fetch[1],
-                APICards:fetch[2],
-                sideBoard: fetch[3],
+                sideBoard: fetch[2],
                 initialized: true
         })
         });
@@ -66,37 +44,7 @@ deleteDeck = (id, userId) => {
     .then(()=>{UserManager.getDecks(userId)
     .then(data =>{this.setState({decks: data})})}).then(()=> UserManager.deleteCards(id)).then(UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})}).then(this.setState ({postedDeck: ""})).then(console.log(this.state.cards)))
 }
-// deleteDeckAndCards = deckID => {
-//     // consider setting initialized state to false until the data comes back
-//     // and also history.push to maindeck page
 
-//     DecksManager.deleteDeck(deckID)
-//       .then(allDecks => {
-//         this.setState({
-//           allDecks: allDecks,
-//           initialized: false
-//         });
-//       })
-//       .then(() => {
-//         // run forEach over allCards - if the card is in the deck we're deleting, delete that card too
-//         this.state.allCards.forEach(card => {
-//           if (card.deckID === deckID) {
-//             // console.log(card)
-//             this.deleteCard(card.id);
-//           }
-//         });
-//       })
-//       .then(() => {
-//         // and now get all the cards again
-//         return CardManager.getAll().then(allCards => {
-//           this.setState({
-//             allCards: allCards,
-//             initialized: true
-//           });
-//         });
-//       });
-//     //   ^ think I need to return a promise here for .then to work in deck detail (for history push)
-//   };
 createDeck=(value) =>{
     let deckName= value
     let user = sessionStorage.getItem("userId")
@@ -112,16 +60,24 @@ createDeck=(value) =>{
     }
 
 postCards= (obj) => {
-//    splicedup= obj.card_name
-// mtg.card.where({name: splicedup})
-// .then(x =>{if( x !== undefined ||x !== null){
+    const mtg = require('mtgsdk')
+
+
+mtg.card.where({name: obj.card_name})
+.then(x =>{if( x.length !== 0){
     UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})).then(alert("added a card to your deck!")))
-    // } else { alert("card does not exist")}
-// })
+    } else { alert("card does not exist")}
+})
 }
 postSideboard= (obj) =>{
+    const mtg = require('mtgsdk')
+
+
+mtg.card.where({name: obj.card_name})
+.then(x =>{if( x.length !== 0){
     UserManager.postSideboard(obj).then(()=>UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard})).then(console.log(this.state.sideboards)))
-}
+} else { alert("card does not exist")}
+})}
 
 isAuthenticated = () => (sessionStorage.getItem("userId") !== null)
 
@@ -137,15 +93,27 @@ deleteSideboard = (id) => {
 UserManager.deleteSideboard(id).then(()=>{UserManager.getSideboard().then(newSideboard => this.setState({sideBoard:newSideboard}))})
 }
 editSubmit = (id,obj) => {
+    const mtg = require('mtgsdk')
+
+
+mtg.card.where({name: obj.card_name})
+.then(x =>{if( x.length !== 0){
     UserManager.editCard(id, obj).then(()=> {UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})})})
-}
+} else { alert("card does not exist")}
+})}
+
 editSideboard=(id,obj) =>{
+    const mtg = require('mtgsdk')
+
+
+mtg.card.where({name: obj.card_name})
+.then(x =>{if( x.length !== 0){
     UserManager.editSideboard(id,obj).then(()=>{UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard}))})
-}
+} else { alert("card does not exist")}
+})}
 
 
 render(){
-    console.log(this.state.APICards)
 
         return(
             <React.Fragment>
