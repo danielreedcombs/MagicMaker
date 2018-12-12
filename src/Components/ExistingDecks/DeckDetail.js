@@ -50,14 +50,14 @@ export default class DeckDetail extends React.Component{
         if(card === deckId){
             return(
             <div key={this.props.card.id} className="align">
-            <h5>{this.props.card.card_name}</h5>  <h5 className="padding">quantity:</h5>  <h5>{this.props.card.quantity}</h5>
+            <h5>{this.props.card.card_name}</h5><h5 className="padding">quantity:</h5>  <h5>{this.props.card.quantity}</h5>
             <Button color="info" onClick={this.toggle}>edit</Button>
             <Button color="danger" onClick={()=>{this.props.deleteCard(this.props.card.id)}} > delete </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
           <ModalHeader toggle={this.toggle}> {this.props.card.card_name}</ModalHeader>
           <ModalBody className="sideBySide">
           <form onSubmit={() => this.editFinal(this.props.card.id)}>
-          <input type="text" placeholder="type card here" className="editCard" />
+          <input type="text" placeholder={this.props.card.card_name} className="editCard" />
           </form>
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
         <DropdownToggle caret>

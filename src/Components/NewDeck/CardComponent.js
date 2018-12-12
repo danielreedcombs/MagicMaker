@@ -50,7 +50,7 @@ export default class CardComponent extends React.Component{
           <ModalHeader toggle={this.toggle}> {this.props.card.card_name}</ModalHeader>
           <ModalBody className="sideBySide">
           <form onSubmit={() => this.editFinal(this.props.card.id)}>
-          <input type="text" placeholder="type card here" className="editCard" />
+          <input type="text" placeholder={this.props.card.card_name} className="editCard" />
           </form>
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
         <DropdownToggle caret>

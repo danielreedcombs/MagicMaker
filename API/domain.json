@@ -45,27 +45,15 @@
       "id": 6
     },
     {
-      "card_name": "Swords to plowshares",
-      "deckId": 15,
-      "quantity": 4,
-      "id": 7
-    },
-    {
-      "card_name": "Brainstorm",
-      "deckId": 15,
-      "quantity": 4,
-      "id": 8
-    },
-    {
       "card_name": "Ponder",
       "deckId": 15,
       "quantity": 4,
       "id": 9
     },
     {
-      "card_name": "CounterSpell",
+      "card_name": "Counter Spell",
       "deckId": 15,
-      "quantity": 2,
+      "quantity": 3,
       "id": 10
     },
     {
@@ -127,12 +115,6 @@
       "deckId": 15,
       "quantity": 3,
       "id": 20
-    },
-    {
-      "card_name": "Island",
-      "deckId": 15,
-      "quantity": 8,
-      "id": 21
     },
     {
       "card_name": "plains",

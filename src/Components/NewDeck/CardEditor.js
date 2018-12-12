@@ -71,7 +71,7 @@ state={
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
           <ModalHeader toggle={this.toggle}> {this.props.deckName.name}</ModalHeader>
           <ModalBody className="sideBySide">
-          <input type="text" placeholder="type card here" className="newCard" />
+          <input type="text" placeholder="Search" className="newCard" />
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
         <DropdownToggle caret>
          quantity
@@ -101,7 +101,7 @@ state={
       </Dropdown>
       <h3>{this.state.number}</h3>
       <Button color="btn btn-Primary"onClick={()=>{ if(this.props.deckName.name !== undefined){ this.postCardToDatabase()} else {alert("create a deck first")}}} >add card</Button>
-      <Button color="info" onClick={()=>{ if(this.props.deckName.name !== undefined){ this.postSideboard()} else {alert("create a deck first")}}} >add Sideboard Card</Button>
+      <Button color="info" onClick={()=>{ if(this.props.deckName.name !== undefined){ this.postSideboard()} else {alert("create a deck first")}}} >Sideboard Card</Button>
           </ModalBody>
           <ModalFooter>
             <Button color="secondary" onClick={this.toggle} >Cancel</Button>
@@ -109,23 +109,26 @@ state={
         </Modal>
       </div>
     </div>
-    <h3>Deck</h3>
+    <div className="midLane">
+    <h3>Main Deck</h3>
         {this.props.cards.map(card =>
             <CardComponent editSubmit={this.props.editSubmit}deleteCard={this.props.deleteCard} cards={this.props.cards} deckName={this.props.deckName} APICards={this.props.APICards} card= {card} />
             )
-        }
+          }
+    </div>
+    <div className="midLane">
     <h3>Sideboard</h3>
     <div>
       {this.props.sideboards.map(sideboard =>
         <SideboardSection sideboard={sideboard} editSideboard={this.props.editSideboard}
         postSideboard={this.props.postSideboard}
         deleteSideboard={this.props.deleteSideboard}
-         getSideboard={this.props.getSideboard}
-         deckName={this.props.deckName}
-         sideboards={this.props.sideboards} />)}
+        getSideboard={this.props.getSideboard}
+        deckName={this.props.deckName}
+        sideboards={this.props.sideboards} />)}
     </div>
+  </div>
     </div>
   </div>
         )
-
 }}

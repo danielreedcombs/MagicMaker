@@ -31,16 +31,6 @@ export default class Home extends Component {
         if (returns.length < 1) {
           alert("Your email or Password is wrong")
         }
-        // else if (null === null) {
-        //   sessionStorage.setItem(
-        //     "userId", returns[0].id
-        //   )
-        //   sessionStorage.setItem("userName", returns[0].name)
-        //   this.setState({
-        //     currentUser: sessionStorage.getItem("userId")
-        //   }, console.log(this.state.currentUser))
-        //   // this.props.history.push("/")
-
         else if (returns.length === 1) {
         sessionStorage.setItem(
           "userId", returns[0].id
@@ -50,12 +40,10 @@ export default class Home extends Component {
           currentUser: sessionStorage.getItem("userId")
         }, console.log(this.state.currentUser))
         console.log("load decks")
-        // this.props.loadDecks()
         this.props.history.push("/existingDecks")
       }
     })
 }
-// Update state whenever an input field is edited
 handleFieldChange = (evt) => {
   const stateToChange = {}
   stateToChange[evt.target.id] = evt.target.value
@@ -74,8 +62,6 @@ hideLoginForm = () => {
   const currentState = this.state.hideLoginForm;
   this.setState({ hideLoginForm: !currentState });
 };
-
-// Handle register for new user
 registration = (e) => {
 
   if (this.state.name === "" || this.state.loginPassword === "") {
@@ -93,9 +79,6 @@ registration = (e) => {
       })
   }
 }
-
-//registion functions, cunstructing a new user and posting it to the database
-
 render() {
   return (
     <React.Fragment>

@@ -66,7 +66,37 @@ deleteDeck = (id, userId) => {
     .then(()=>{UserManager.getDecks(userId)
     .then(data =>{this.setState({decks: data})})}).then(()=> UserManager.deleteCards(id)).then(UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})}).then(this.setState ({postedDeck: ""})).then(console.log(this.state.cards)))
 }
+// deleteDeckAndCards = deckID => {
+//     // consider setting initialized state to false until the data comes back
+//     // and also history.push to maindeck page
 
+//     DecksManager.deleteDeck(deckID)
+//       .then(allDecks => {
+//         this.setState({
+//           allDecks: allDecks,
+//           initialized: false
+//         });
+//       })
+//       .then(() => {
+//         // run forEach over allCards - if the card is in the deck we're deleting, delete that card too
+//         this.state.allCards.forEach(card => {
+//           if (card.deckID === deckID) {
+//             // console.log(card)
+//             this.deleteCard(card.id);
+//           }
+//         });
+//       })
+//       .then(() => {
+//         // and now get all the cards again
+//         return CardManager.getAll().then(allCards => {
+//           this.setState({
+//             allCards: allCards,
+//             initialized: true
+//           });
+//         });
+//       });
+//     //   ^ think I need to return a promise here for .then to work in deck detail (for history push)
+//   };
 createDeck=(value) =>{
     let deckName= value
     let user = sessionStorage.getItem("userId")
@@ -82,7 +112,12 @@ createDeck=(value) =>{
     }
 
 postCards= (obj) => {
-UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})).then(alert("added a card to your deck!")))
+//    splicedup= obj.card_name
+// mtg.card.where({name: splicedup})
+// .then(x =>{if( x !== undefined ||x !== null){
+    UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})).then(alert("added a card to your deck!")))
+    // } else { alert("card does not exist")}
+// })
 }
 postSideboard= (obj) =>{
     UserManager.postSideboard(obj).then(()=>UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard})).then(console.log(this.state.sideboards)))

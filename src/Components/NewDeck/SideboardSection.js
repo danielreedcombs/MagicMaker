@@ -1,7 +1,7 @@
 import React from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import "./styles.css"
 export default class DeckDetail extends React.Component{
     state={
         number: ""
@@ -59,7 +59,7 @@ export default class DeckDetail extends React.Component{
           <ModalHeader toggle={this.toggle}> {this.props.sideboard.card_name}</ModalHeader>
           <ModalBody className="sideBySide">
           <form onSubmit={() => this.editFinal(this.props.sideboard.id)}>
-          <input type="text" placeholder="type card here" className="editCard" />
+          <input type="text" placeholder={this.props.sideboard.card_name} className="editCard" />
           </form>
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
         <DropdownToggle caret>

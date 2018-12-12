@@ -13,3 +13,9 @@
     margin:2px;
     padding:2px
 }
+
+.midLane{
+    display:flex;
+    justify-content:center;
+    flex-direction: row;
+}
