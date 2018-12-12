@@ -1,4 +1,3 @@
-// import { Route, Redirect } from 'react-router-dom'
 import React, { Component } from "react"
 import { Route, Redirect } from 'react-router-dom'
 import NewDeck from "./NewDeck/NewDeck.js"
@@ -10,7 +9,6 @@ export default class ApplicationView extends Component{
     state = {
         decks: [],
         cards:[],
-        APICards:[],
         sideBoard:[],
         postedDeck: "",
         initialized:false
@@ -21,23 +19,26 @@ export default class ApplicationView extends Component{
 
 componentDidMount() {
     let id= sessionStorage.getItem("userId")
-    let getDecks = UserManager.getDecks(id)
+    if (id !== null) {
+    this.loadDecks(id)
+    }
+}
+
+loadDecks=(temp)=>{
+    let getDecks = UserManager.getDecks(temp)
     let getCards =UserManager.getAllMyCards()
-    let getAPICards=UserManager.getAPICards()
     let getSideboardCards= UserManager.getSideboard()
-        Promise.all([getDecks, getCards, getAPICards, getSideboardCards]).then((fetch)=>{
+        Promise.all([getDecks, getCards, getSideboardCards]).then((fetch)=>{
 
             this.setState({
                 decks: fetch[0],
                 cards: fetch[1],
-                APICards:fetch[2],
-                sideBoard: fetch[3],
+                sideBoard: fetch[2],
                 initialized: true
         })
-        }).then(() =>console.log(this.state.APICards));
-        }
+        });
 
-
+}
 deleteDeck = (id, userId) => {
     UserManager.deletedeck(id)
     .then(()=>{UserManager.getDecks(userId)
@@ -59,13 +60,26 @@ createDeck=(value) =>{
     }
 
 postCards= (obj) => {
-UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})).then(alert("added a card to your deck!")))
+    const mtg = require('mtgsdk')
+
+
+mtg.card.where({name: obj.card_name})
+.then(x =>{if( x.length !== 0){
+    UserManager.postCard(obj).then(() => UserManager.getAllMyCards().then(newCards => this.setState({cards: newCards})).then(alert("added a card to your deck!")))
+    } else { alert("card does not exist")}
+})
 }
 postSideboard= (obj) =>{
-    UserManager.postSideboard(obj).then(()=>UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard})).then(console.log(this.state.sideboards)))
-}
+    const mtg = require('mtgsdk')
 
-isAuthenticated = () => (sessionStorage.getItem("userId") !== null || localStorage.getItem("userId") !== null)
+
+mtg.card.where({name: obj.card_name})
+.then(x =>{if( x.length !== 0){
+    UserManager.postSideboard(obj).then(()=>UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard})).then(console.log(this.state.sideboards)))
+} else { alert("card does not exist")}
+})}
+
+isAuthenticated = () => (sessionStorage.getItem("userId") !== null)
 
 getCurrentUser = () => {
     const currentUser = +sessionStorage.getItem("userId") || +localStorage.getItem("userId")
@@ -79,15 +93,27 @@ deleteSideboard = (id) => {
 UserManager.deleteSideboard(id).then(()=>{UserManager.getSideboard().then(newSideboard => this.setState({sideBoard:newSideboard}))})
 }
 editSubmit = (id,obj) => {
+    const mtg = require('mtgsdk')
+
+
+mtg.card.where({name: obj.card_name})
+.then(x =>{if( x.length !== 0){
     UserManager.editCard(id, obj).then(()=> {UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})})})
-}
+} else { alert("card does not exist")}
+})}
+
 editSideboard=(id,obj) =>{
+    const mtg = require('mtgsdk')
+
+
+mtg.card.where({name: obj.card_name})
+.then(x =>{if( x.length !== 0){
     UserManager.editSideboard(id,obj).then(()=>{UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard}))})
-}
+} else { alert("card does not exist")}
+})}
 
 
 render(){
-    console.log(this.state.APICards)
 
         return(
             <React.Fragment>
@@ -114,7 +140,7 @@ render(){
                 }} />
                 <Route path="/home" render={props => {
           return (
-            <Home getAllUsers={this.getAllUsers} getCurrentUser={this.getCurrentUser} {...props} />)
+            <Home loadDecks={this.loadDecks} getAllUsers={this.getAllUsers} getCurrentUser={this.getCurrentUser} {...props} />)
         }} />
             </React.Fragment>
         )

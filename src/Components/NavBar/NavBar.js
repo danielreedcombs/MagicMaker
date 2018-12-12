@@ -15,6 +15,7 @@ class NavBar extends Component {
                   <Link className="nav-link" to="/existingDecks">Existing Decklists</Link>
               </li>
             </ul>
+        <h3>Magic Maker</h3>
           </nav>
         )
     }
