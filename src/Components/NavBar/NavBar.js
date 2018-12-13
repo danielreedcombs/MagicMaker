@@ -2,13 +2,6 @@
 
 import React from "react"
 import {
-    Collapse,
-    Navbar,
-    NavbarToggler,
-    NavbarBrand,
-    Nav,
-    NavItem,
-    NavLink,
     UncontrolledDropdown,
     DropdownToggle,
     DropdownMenu,
@@ -17,7 +10,6 @@ import { Link } from "react-router-dom"
 import "bootstrap/dist/css/bootstrap.min.css"
 import "./NavBar.css"
 import plainswalkerlogo from "./watermark_ojutai.png"
-import mtg from "./mtglogo.png"
 import sultai from "./sultai.png"
 import atarka from "./Atarka.png"
 import mardu from "./klgn.png"

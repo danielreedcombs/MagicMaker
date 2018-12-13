@@ -35,11 +35,6 @@
     {
       "name": "Miracles",
       "user_id": "3",
-      "id": 14
-    },
-    {
-      "name": "Death and Taxes",
-      "user_id": "3",
       "id": 15
     }
   ],
@@ -55,10 +50,34 @@
       "id": 6
     },
     {
-      "card_name": "Swords to Plowshares",
-      "deckId": 14,
+      "card_name": "Island",
+      "deckId": 15,
+      "quantity": 8,
+      "id": 16
+    },
+    {
+      "card_name": "Plains",
+      "deckId": 15,
+      "quantity": 6,
+      "id": 17
+    },
+    {
+      "card_name": "Scalding Tarn",
+      "deckId": 15,
       "quantity": 4,
-      "id": 7
+      "id": 18
+    },
+    {
+      "card_name": "Flooded Strand",
+      "deckId": 15,
+      "quantity": 4,
+      "id": 19
+    },
+    {
+      "card_name": "Tundra",
+      "deckId": 15,
+      "quantity": 4,
+      "id": 20
     }
   ],
   "sideboard": [
@@ -68,15 +87,22 @@
       "id": 6
     },
     {
-      "card_name": "Back to Basics",
-      "deckId": 14,
-      "quantity": 4,
+      "card_name": "Rest in Peace",
+      "deckId": 15,
+      "quantity": 2,
       "id": 7
     },
     {
-      "card_name": "Lightning bolt",
+      "card_name": "Surgical Extraction",
       "deckId": 15,
+      "quantity": 2,
       "id": 8
+    },
+    {
+      "card_name": "Flusterstorm",
+      "deckId": 15,
+      "quantity": 2,
+      "id": 9
     }
   ]
 }

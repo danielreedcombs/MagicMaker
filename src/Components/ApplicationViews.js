@@ -75,7 +75,7 @@ postSideboard= (obj) =>{
 
 mtg.card.where({name: obj.card_name})
 .then(x =>{if( x.length !== 0){
-    UserManager.postSideboard(obj).then(()=>UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard})).then(console.log(this.state.sideboards)))
+    UserManager.postSideboard(obj).then(()=>UserManager.getSideboard().then(newSideboard => this.setState({sideBoard: newSideboard})).then(alert("added a sideboard card to your deck!")))
 } else { alert("card does not exist")}
 })}
 

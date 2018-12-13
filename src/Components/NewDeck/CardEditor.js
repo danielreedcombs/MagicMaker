@@ -71,7 +71,6 @@ state={
           <div>
             <div>
                 <div key={this.props.deckName.Id} className= "sideBySide">
-                    {/* <h4 className="setAppart"> {this.props.deckName.name} </h4> */}
         <div>
         <Button color="danger" onClick={this.toggle}>Add Cards</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >

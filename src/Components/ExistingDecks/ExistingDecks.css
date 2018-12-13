@@ -7,15 +7,22 @@
     margin:5px
 }
 .basicdeck{
+    display:flex;
     background-Color: #F26419 !important;
+    width:240px;
   }
 
 .button{
-    width:20px;
-    height:20px;
+    width:15px;
+    height:15px;
 }
 
 body{
     background-image: url("https://i.pinimg.com/originals/f9/5f/b2/f95fb2b052de71594c89d8621204ab1c.jpg") !important
+}
+
+.buttons{
+    width:30px;
+    height:30px
 }
 

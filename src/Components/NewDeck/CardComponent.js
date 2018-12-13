@@ -60,7 +60,7 @@ export default class CardComponent extends React.Component{
           </form>
           <Dropdown isOpen={this.state.dropdownOpen} toggle={this.toggleDropDown}>
         <DropdownToggle caret>
-         quantity
+         Quantity
         </DropdownToggle>
         <DropdownMenu>
           <DropdownItem value= "1" onClick={() =>{this.setState({number: 1})}} >1</DropdownItem>

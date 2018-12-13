@@ -17,6 +17,16 @@
     flex-direction: column
 }
 
+.centeredcontainer{
+height:75;
+width:40;
+margin:5px;
+padding:5px;
+display: flex !important;
+align-items: center !important;
+flex-direction: column !important;
+background-color:white !important
+}
 
 
 .button{

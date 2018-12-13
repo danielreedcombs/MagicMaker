@@ -52,9 +52,11 @@ export default class DeckDetail extends React.Component{
         if(card === deckId){
             return(
             <div className="align">
-            <h5>{this.props.card.card_name}</h5><h5 className="padding">quantity:</h5>  <h5>{this.props.card.quantity}</h5>
-            <Button color="info" onClick={this.toggle}><img src={editbutton} className="button" /></Button>
-            <Button color="primary" onClick={()=>{this.props.deleteCard(this.props.card.id)}} ><img src={deletebutton} className= "button"/> </Button>
+            <div className="align">
+            <p>{this.props.card.card_name}</p><p className="padding">quantity:</p>  <p>{this.props.card.quantity}</p>
+            <Button color="info" onClick={this.toggle} className="buttons"><img src={editbutton} className="button" /></Button>
+            <Button color="primary" onClick={()=>{this.props.deleteCard(this.props.card.id)}} className="buttons"><img src={deletebutton} className= "button"/> </Button>
+            </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
           <ModalHeader toggle={this.toggle}> {this.props.card.card_name}</ModalHeader>
           <ModalBody className="sideBySide">
