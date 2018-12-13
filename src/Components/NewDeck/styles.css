@@ -9,13 +9,17 @@
         justify-content: center;
         flex-direction: row
 }
-.setAppart{
-    margin:2px;
-    padding:2px
-}
-
 .center{
+    margin:5px;
+    padding:5px;
     display: flex;
     align-items: center;
     flex-direction: column
+}
+
+
+
+.button{
+    width:20px;
+    height:20px;
 }

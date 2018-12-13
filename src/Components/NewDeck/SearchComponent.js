@@ -8,7 +8,7 @@ state = {}
 render(){
 
         return (
-            <div>
+            <div className="basicnewdeck">
             <div className="row">
             <input type="text" className= "deckName" placeholder= "Deck Name" />
             <button className="btn btn-primary" onClick= {()=> {this.props.createDeck(document.querySelector(".deckName").value)}}>Create a Deck</button>

@@ -34,13 +34,8 @@
     },
     {
       "name": "Miracles",
-      "user_id": "1",
-      "id": 14
-    },
-    {
-      "name": "Miracles",
       "user_id": "3",
-      "id": 15
+      "id": 14
     }
   ],
   "cards": [
@@ -55,40 +50,16 @@
       "id": 6
     },
     {
-      "card_name": "Snapcaster Mage",
-      "deckId": 14,
-      "quantity": 4,
-      "id": 7
-    },
-    {
-      "card_name": "Terminus",
+      "card_name": "Brainstorm",
       "deckId": 14,
       "quantity": 4,
       "id": 8
     },
     {
-      "card_name": "Brainstorm",
-      "deckId": 14,
-      "quantity": 4,
-      "id": 9
-    },
-    {
       "card_name": "Ponder",
       "deckId": 14,
       "quantity": 4,
-      "id": 10
-    },
-    {
-      "card_name": "Force of Will",
-      "deckId": 14,
-      "quantity": 4,
-      "id": 11
-    },
-    {
-      "card_name": "Lightning bolt",
-      "deckId": 15,
-      "quantity": 3,
-      "id": 13
+      "id": 9
     }
   ],
   "sideboard": [
@@ -96,12 +67,6 @@
       "card_name": "better",
       "deckId": 13,
       "id": 6
-    },
-    {
-      "card_name": "lightning bolt",
-      "deckId": 15,
-      "quantity": 2,
-      "id": 7
     }
   ]
 }

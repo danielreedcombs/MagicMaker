@@ -1,3 +1,6 @@
+
+body{
+}
 .App {
   text-align: center;
 }
@@ -15,11 +18,9 @@
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
 }
 
 .App-link {
-  color: #61dafb;
 }
 
 @keyframes App-logo-spin {
@@ -29,4 +30,16 @@
   to {
     transform: rotate(360deg);
   }
+}
+
+.basiclook{
+  font-family:Arial Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+  height:820px;
+  background-image: url("https://i.pinimg.com/originals/f9/5f/b2/f95fb2b052de71594c89d8621204ab1c.jpg")!important;
+  background-repeat: no-repeat;
+  background-size:cover;
+}
+
+.navbar{
+  background-Color: black !important
 }

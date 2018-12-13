@@ -1,15 +1,16 @@
 
 import React, { Component } from 'react'
 import ApplicationViews from "./ApplicationViews"
+import "./App.css"
 
 
 export default class App extends Component {
 
     render() {
         return (
-            <React.Fragment>
+            <div className="basiclook">
                 <ApplicationViews />
-            </React.Fragment>
+            </div>
         );
     }
 }

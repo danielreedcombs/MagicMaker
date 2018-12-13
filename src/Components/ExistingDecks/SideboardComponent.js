@@ -49,7 +49,7 @@ export default class DeckDetail extends React.Component{
         const card =this.props.sideboard.deckId
         if(card === deckId){
             return(
-            <div key={this.props.sideboard.id} className="align">
+            <div className="align">
             <h5>{this.props.sideboard.card_name}</h5>  <h5 className="padding">quantity:</h5>  <h5>{this.props.sideboard.quantity}</h5>
             <Button color="info" onClick={this.toggle}>edit</Button>
             <Button color="danger" onClick={()=>{this.props.deleteSideboard(this.props.sideboard.id)}} > delete </Button>

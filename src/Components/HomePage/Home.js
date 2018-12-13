@@ -1,6 +1,7 @@
 import React, { Component } from "react"
 import UserManager from "../../apiHandler/UserManager"
 import Login from "../Login/Login"
+import "./Home.css"
 
 export default class Home extends Component {
   state = {
@@ -18,16 +19,13 @@ export default class Home extends Component {
     UserManager.post(user).then(() => {
       this.loginUser()
     })
-      .then(() => console.log(user))
 
   }
 
   loginUser() {
-    console.log(this.state)
     fetch(`http://localhost:8088/users/?name=${this.state.name}&password=${this.state.loginPassword}`)
       .then(x => x.json())
       .then(returns => {
-        console.log(returns)
         if (returns.length < 1) {
           alert("Your email or Password is wrong")
         }
@@ -39,8 +37,7 @@ export default class Home extends Component {
         this.props.loadDecks(returns[0].id)
         this.setState({
           currentUser: sessionStorage.getItem("userId")
-        }, console.log(this.state.currentUser))
-        console.log("load decks")
+        })
         this.props.history.push("/existingDecks")
       }
     })
@@ -71,7 +68,6 @@ registration = (e) => {
     fetch(`http://localhost:8088/users/?name=${this.state.name}&password=${this.state.loginPassword}`)
       .then(x => x.json())
       .then((returns) => {
-        console.log(returns)
         if (returns.length > 0) {
           alert("That email is already. Please use another email")
         } else {
