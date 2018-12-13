@@ -36,6 +36,11 @@
       "name": "Miracles",
       "user_id": "3",
       "id": 14
+    },
+    {
+      "name": "Death and Taxes",
+      "user_id": "3",
+      "id": 15
     }
   ],
   "cards": [
@@ -50,16 +55,10 @@
       "id": 6
     },
     {
-      "card_name": "Brainstorm",
+      "card_name": "Swords to Plowshares",
       "deckId": 14,
       "quantity": 4,
-      "id": 8
-    },
-    {
-      "card_name": "Ponder",
-      "deckId": 14,
-      "quantity": 4,
-      "id": 9
+      "id": 7
     }
   ],
   "sideboard": [
@@ -67,6 +66,17 @@
       "card_name": "better",
       "deckId": 13,
       "id": 6
+    },
+    {
+      "card_name": "Back to Basics",
+      "deckId": 14,
+      "quantity": 4,
+      "id": 7
+    },
+    {
+      "card_name": "Lightning bolt",
+      "deckId": 15,
+      "id": 8
     }
   ]
 }
