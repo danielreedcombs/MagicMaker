@@ -1,6 +1,8 @@
 import React from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import { Row, Col } from 'reactstrap';
+
 import "./styles.css"
 import CardComponent from "./CardComponent"
 import SideboardSection from "./SideboardSection"
@@ -61,11 +63,15 @@ state={
 
     render(){
 
-        return(
+      return(
         <div>
+          <Row>
+          <Col xs="6" sm="4"></Col>
+          <Col xs="6" sm="4">
+          <div>
             <div>
                 <div key={this.props.deckName.Id} className= "sideBySide">
-                    <h4 className="setAppart"> {this.props.deckName.name} </h4>
+                    {/* <h4 className="setAppart"> {this.props.deckName.name} </h4> */}
         <div>
         <Button color="danger" onClick={this.toggle}>Add Cards</Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
@@ -109,18 +115,19 @@ state={
         </Modal>
       </div>
     </div>
-    <div className="midLane">
+    <div className="center">
+    <h2>{this.props.deckName.name}</h2>
     <h3>Main Deck</h3>
         {this.props.cards.map(card =>
-            <CardComponent editSubmit={this.props.editSubmit}deleteCard={this.props.deleteCard} cards={this.props.cards} deckName={this.props.deckName} APICards={this.props.APICards} card= {card} />
+            <CardComponent key={card.id} editSubmit={this.props.editSubmit}deleteCard={this.props.deleteCard} cards={this.props.cards} deckName={this.props.deckName} APICards={this.props.APICards} card= {card} />
             )
           }
     </div>
-    <div className="midLane">
+    <div className="center">
     <h3>Sideboard</h3>
     <div>
       {this.props.sideboards.map(sideboard =>
-        <SideboardSection sideboard={sideboard} editSideboard={this.props.editSideboard}
+        <SideboardSection key={sideboard.id} sideboard={sideboard} editSideboard={this.props.editSideboard}
         postSideboard={this.props.postSideboard}
         deleteSideboard={this.props.deleteSideboard}
         getSideboard={this.props.getSideboard}
@@ -130,5 +137,11 @@ state={
   </div>
     </div>
   </div>
+
+  </Col>
+    <Col sm="4"></Col>
+
+  </Row>
+  </div>
         )
-}}
+      }}

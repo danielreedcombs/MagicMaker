@@ -42,7 +42,7 @@ loadDecks=(temp)=>{
 deleteDeck = (id, userId) => {
     UserManager.deletedeck(id)
     .then(()=>{UserManager.getDecks(userId)
-    .then(data =>{this.setState({decks: data})})}).then(()=> UserManager.deleteCards(id)).then(UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})}).then(this.setState ({postedDeck: ""})).then(console.log(this.state.cards)))
+    .then(data =>{this.setState({decks: data})})}).then(()=> UserManager.deleteCards(id)).then(UserManager.getAllMyCards().then(newCards => {this.setState({cards: newCards})}).then(this.setState ({postedDeck: ""})))
 }
 
 createDeck=(value) =>{
@@ -118,7 +118,6 @@ render(){
         return(
             <React.Fragment>
                 <NavBar />
-                <br></br>
                 <br></br>
                 <Route path="/newDeck" render={(props) => {
                     if(this.isAuthenticated()) {

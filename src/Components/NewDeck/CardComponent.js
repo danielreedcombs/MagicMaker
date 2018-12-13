@@ -1,6 +1,9 @@
 import React from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
+import "./styles.css"
+import editbutton from "./edit button.png";
+import deletebutton from "./delete button.png"
 
 export default class CardComponent extends React.Component{
     state= {
@@ -42,10 +45,13 @@ export default class CardComponent extends React.Component{
         const cardId =this.props.card.deckId
         if(Number(cardId) === Number(deckId)){
             return(
-            <div key={this.props.card.id}>
-            <div>{this.props.card.card_name}{this.props.card.quantity}</div>
-            <Button color="info" onClick={this.toggle}>edit</Button>
-            <Button color="danger" onClick={()=>{this.props.deleteCard(this.props.card.id)}} > delete </Button>
+            <div key={this.props.card.id} className="center">
+            <div className="sideBySide">
+            <h4 className= "padding sideBySide">{this.props.card.card_name}</h4>
+            <h5 className="padding sideBySide">Quantity:</h5><p className="padding"> {this.props.card.quantity}</p>
+            <Button color="info" onClick={this.toggle}><img src={editbutton} className="button" /></Button>
+            <Button color="danger" onClick={()=>{this.props.deleteCard(this.props.card.id)}} > <img src={deletebutton} className="button" /> </Button>
+            </div>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
           <ModalHeader toggle={this.toggle}> {this.props.card.card_name}</ModalHeader>
           <ModalBody className="sideBySide">

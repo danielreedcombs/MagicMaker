@@ -1,7 +1,7 @@
 import React, { Component } from "react"
 import SearchComponent from "./SearchComponent"
 import UserManager from "../../apiHandler/UserManager";
-
+import "./styles.css"
 export default class NewDeck extends Component {
 state = {}
 
