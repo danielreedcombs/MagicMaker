@@ -1,7 +1,8 @@
 import React from "react"
 import { Button, Modal, ModalHeader, ModalBody, ModalFooter } from 'reactstrap';
 import { Dropdown, DropdownToggle, DropdownMenu, DropdownItem } from 'reactstrap';
-
+import deletebutton from "./delete button.png"
+import editbutton from "./edit button.png"
 import "./ExistingDecks.css"
 export default class DeckDetail extends React.Component{
     state={
@@ -51,8 +52,8 @@ export default class DeckDetail extends React.Component{
             return(
             <div className="align">
             <h5>{this.props.sideboard.card_name}</h5>  <h5 className="padding">quantity:</h5>  <h5>{this.props.sideboard.quantity}</h5>
-            <Button color="info" onClick={this.toggle}>edit</Button>
-            <Button color="danger" onClick={()=>{this.props.deleteSideboard(this.props.sideboard.id)}} > delete </Button>
+            <Button color="info" onClick={this.toggle}><img src={editbutton} className="button" /></Button>
+            <Button color="danger" onClick={()=>{this.props.deleteSideboard(this.props.sideboard.id)}} > <img src={deletebutton} className="button"/> </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
           <ModalHeader toggle={this.toggle}> {this.props.sideboard.card_name}</ModalHeader>
           <ModalBody className="sideBySide">
