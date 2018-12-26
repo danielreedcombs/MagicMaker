@@ -8,8 +8,9 @@
 }
 .basicdeck{
     display:flex;
-    background-Color: #F26419 !important;
-    width:240px;
+    background-Color: 	#B0B0B0 !important;
+    width:300px;
+    border-radius: 10px;
   }
 
 .button{
@@ -24,5 +25,17 @@ body{
 .buttons{
     width:30px;
     height:30px
+}
+
+
+.basicFlex{
+    display:flex;
+}
+
+.rowoffour{
+    display: flex;
+    flex-flow: row wrap;
+    min-width: 25%;
+
 }
 

@@ -50,18 +50,6 @@
       "id": 6
     },
     {
-      "card_name": "Island",
-      "deckId": 15,
-      "quantity": 8,
-      "id": 16
-    },
-    {
-      "card_name": "Plains",
-      "deckId": 15,
-      "quantity": 6,
-      "id": 17
-    },
-    {
       "card_name": "Scalding Tarn",
       "deckId": 15,
       "quantity": 4,

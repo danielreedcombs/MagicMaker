@@ -53,7 +53,7 @@ export default class DeckDetail extends React.Component{
             <div className="align">
             <p>{this.props.sideboard.card_name}</p>  <p className="padding">quantity:</p>  <p>{this.props.sideboard.quantity}</p>
             <Button color="info" onClick={this.toggle} className="buttons"><img src={editbutton} className="button" /></Button>
-            <Button color="danger" onClick={()=>{this.props.deleteSideboard(this.props.sideboard.id)}} className="buttons" > <img src={deletebutton} className="button"/> </Button>
+            <Button color="primary" onClick={()=>{this.props.deleteSideboard(this.props.sideboard.id)}} className="buttons" > <img src={deletebutton} className="button"/> </Button>
         <Modal isOpen={this.state.modal} toggle={this.toggle} className={this.props.className} >
           <ModalHeader toggle={this.toggle}> {this.props.sideboard.card_name}</ModalHeader>
           <ModalBody className="sideBySide">
