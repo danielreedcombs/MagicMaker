@@ -10,9 +10,11 @@ These instructions will get you a copy of the project up and running on your loc
 
 
 **Prerequisites**
+
 To start, you'll need to download and install NPM.
 
 **Installing**
+
 Open your Terminal and type
 
 git clone git@github.com:danielreedcombs/MagicMaker.git
