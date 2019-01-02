@@ -18,15 +18,15 @@ To start, you'll need to download and install NPM.
 
 Open your Terminal and type
 
-git clone git@github.com:danielreedcombs/MagicMaker.git
+```git clone git@github.com:danielreedcombs/MagicMaker.git```
 
 Next in the terminal type cd api
 To start the server, type
 
-json-server -w -p 8088 domain.json
+```json-server -w -p 8088 domain.json```
 Open a second command line window and navigate to the same directory. To start the app, type
 
-npm start
+```npm start```
 Using the app
 
 
