@@ -27,7 +27,6 @@ To start the server, type
 Open a second command line window and navigate to the same directory. To start the app, type
 
 ```npm start```
-Using the app
 
 
 ___
