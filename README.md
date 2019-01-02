@@ -1,19 +1,20 @@
 
-**Magic Maker**
+######Magic Maker
 
 Magic Maker is an applications for people playing the competitive card game Magic the Gathering. This application is for the player to have the ability to keep track of decks that they play and all the cards that they are playing in that deck. 
 
 ___
 
-**Getting Started**
+####Getting Started
+
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
 
 
-**Prerequisites**
+####Prerequisites
 
 To start, you'll need to download and install NPM.
 
-**Installing**
+####Installing
 
 Open your Terminal and type
 
@@ -30,7 +31,7 @@ Using the app
 
 
 ___
-**Built With**
+####Built With
 
 React - Web framework
 
