@@ -3,6 +3,7 @@
 
 Magic Maker is an applications for people playing the competitive card game Magic the Gathering. This application is for the player to have the ability to keep track of decks that they play and all the cards that they are playing in that deck. 
 
+___
 
 **Getting Started**
 These instructions will get you a copy of the project up and running on your local machine for development and testing purposes.
