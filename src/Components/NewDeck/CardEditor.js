@@ -114,6 +114,7 @@ state={
         </Modal>
       </div>
     </div>
+    <div className="basicdecks">
     <div className="center">
     <h2>{this.props.deckName.name}</h2>
     <h3>Main Deck</h3>
@@ -133,6 +134,7 @@ state={
         deckName={this.props.deckName}
         sideboards={this.props.sideboards} />)}
     </div>
+  </div>
   </div>
     </div>
   </div>
